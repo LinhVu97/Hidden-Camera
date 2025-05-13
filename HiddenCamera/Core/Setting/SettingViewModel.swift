@@ -8,8 +8,9 @@
 import Foundation
 
 @MainActor
-class SettingViewModel: ObservableObject {
+class SettingViewModel: ObservableObject, BackViewProtocol {
     private let router: SettingRouter
+    @Published var title = "Settings"
     
     init(router: SettingRouter) {
         self.router = router

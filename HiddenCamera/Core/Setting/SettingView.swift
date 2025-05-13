@@ -8,9 +8,33 @@
 import SwiftUI
 
 struct SettingView: View {
-    @ObservedObject var viewModel: SettingViewModel
+    @StateObject var viewModel: SettingViewModel
     
     var body: some View {
-        Text("Setting")
+        VStack(alignment: .leading, spacing: 10) {
+            BackView(viewModel: viewModel)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 16)
+            
+            List {
+                ForEach(SettingType.allCases) { setting in
+                    HStack() {
+                        setting.iconImage()
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                        
+                        Text(setting.title)
+                            .font(.system(size: 14, weight: .regular))
+                        Spacer()
+                    }
+                    .padding(.vertical, 10)
+                    .listRowBackground(Color.colorF9F9F9)
+                }
+            }
+            .scrollDisabled(true)
+            .scrollContentBackground(.hidden)
+            .background(Color.white)
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
