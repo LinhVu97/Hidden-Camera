@@ -10,6 +10,9 @@ import Foundation
 @MainActor
 protocol SettingRouter {
     func dismissScreen()
+    func showShareScreen(content: [Any])
+    func openAppShareURL(_ url: URL)
+    func showRateScreen()
 }
 
 extension EntryRouter: SettingRouter {}
