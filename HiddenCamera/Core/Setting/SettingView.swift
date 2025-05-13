@@ -18,16 +18,21 @@ struct SettingView: View {
             
             List {
                 ForEach(SettingType.allCases) { setting in
-                    HStack() {
-                        setting.iconImage()
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                        
-                        Text(setting.title)
-                            .font(.system(size: 14, weight: .regular))
-                        Spacer()
-                    }
-                    .padding(.vertical, 10)
+                    Button(action: {
+                        viewModel.didTap(setting: setting)
+                    }, label: {
+                        HStack() {
+                            setting.iconImage()
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                            
+                            Text(setting.title)
+                                .font(.system(size: 15, weight: .regular))
+                                .foregroundStyle(.black)
+                            Spacer()
+                        }
+                        .padding(.vertical, 10)
+                    })
                     .listRowBackground(Color.colorF9F9F9)
                 }
             }

@@ -9,7 +9,7 @@ import Foundation
 import SwiftfulRouting
 
 @MainActor
-struct EntryRouter {
+struct EntryRouter: GlobalRouter {
     let router: AnyRouter
     let builder: EntryBuilder
     
