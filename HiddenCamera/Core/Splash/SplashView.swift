@@ -24,7 +24,7 @@ struct SplashView: View {
                 .resizable()
                 .frame(width: 200, height: 200)
                 .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation {
                             isActive = true
                         }
